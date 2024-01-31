@@ -13,6 +13,11 @@ connectDatabase();
 const app = express();
 app.use(express.json());
 app.use(cors());
+app.use(cors({
+origin: ['http://localhost:3000', 'https://velasco-bicycle.onrender.com', 'https://velasco-bicycle-admin.onrender.com/'],
+methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+credentials: true,
+}));
 
 // API
 app.use("/api/import", ImportData);
